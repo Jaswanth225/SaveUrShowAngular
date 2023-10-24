@@ -1,3 +1,9 @@
+<div class="d-flex justify-content-around">
+  <div class="col-md-9 col-lg-6 col-xl-5">
+    <img src="https://thumbs.dreamstime.com/b/cinema-background-concept-movie-theater-object-isolated-white-vector-illustration-205993805.jpg"
+      class="img-fluid" alt="Sample image">
+  </div>
+  <div class="col-md-9 col-lg-6 col-xl-5">
 <div class="register-card" style="background-color:rgb(243, 233, 233);;
 box-shadow: 10px 10px 5px 5px rgb(231, 243, 248);">
   <img class="profile-img-card" src="assets/img/logologin.png" />
@@ -5,7 +11,7 @@ box-shadow: 10px 10px 5px 5px rgb(231, 243, 248);">
   <form [formGroup]="form" (ngSubmit)="submit()" class="form-signup">
     <span class="reauth-email"></span>
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-sm-12">
         <input
           #Email
           formControlName="username"
@@ -17,19 +23,15 @@ box-shadow: 10px 10px 5px 5px rgb(231, 243, 248);">
           autofocus
         />
         <div
-          *ngIf="f['username'].touched && f['username'].invalid"
-          
-        >
-        <small>UserName is required!!</small> 
-          <!-- <div *ngIf="f['username'].errors && f['username'].errors['required']">
-            <small>UserName is required!!</small> 
-          </div> -->
+          *ngIf="f['username'].touched && f['username'].invalid">
+        <small>UserName is required! Minimum 5 characters required!</small> 
+         
         </div>
       </div>
     </div>
 
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-sm-12">
         <input
           #Email
           formControlName="email"
@@ -51,7 +53,7 @@ box-shadow: 10px 10px 5px 5px rgb(231, 243, 248);">
     </div>
 
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-sm-12">
         <input
           #PWD
           formControlName="password"
@@ -73,7 +75,7 @@ box-shadow: 10px 10px 5px 5px rgb(231, 243, 248);">
     </div>
     
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-sm-12">
         <input
           #PWD
           formControlName="confirmpassword"
@@ -100,7 +102,7 @@ box-shadow: 10px 10px 5px 5px rgb(231, 243, 248);">
     </div>
 
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-sm-12">
         <input
           #Email
           formControlName="usertype"
@@ -131,7 +133,6 @@ box-shadow: 10px 10px 5px 5px rgb(231, 243, 248);">
   </form>
   <a class="forgot-password" routerLink="/login">Already a User ?</a>
 </div>
-
-<style></style>
-
+</div>
+</div>
 

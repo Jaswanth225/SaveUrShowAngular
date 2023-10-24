@@ -11,6 +11,7 @@ import {Data} from '../data';
 export class MoviesCreateComponent implements OnInit {
   form!: FormGroup;
   data!:Data;
+
   constructor(
     public dataService: DataService,
     private router: Router
@@ -22,8 +23,11 @@ export class MoviesCreateComponent implements OnInit {
       theatrename: new FormControl('', Validators.required),
       moviename:new FormControl('', Validators.required),
       movieLink: new FormControl('', Validators.required),
-      slot: new FormControl('', Validators.required),
       charges:new FormControl('', Validators.required),
+      synopsis: new FormControl('', Validators.required),
+      Genre: new FormControl('', Validators.required),
+      trailer: new FormControl('', Validators.required),
+      rating: new FormControl('', Validators.required),
      date: new FormControl('', Validators.required),
     });
   }
@@ -34,11 +38,11 @@ export class MoviesCreateComponent implements OnInit {
   submit(){
     console.log(this.form.value);
    
-    this.dataService.create(this.form.value).subscribe((res:any) => {
+    // this.dataService.create(this.form.value).subscribe((res:any) => {
       alert("Movie details are added");
       console.log('Post created successfully!');
       // this.form.reset();
        this.router.navigateByUrl('/movieIndex');
-  })
+//  })
   }
 }

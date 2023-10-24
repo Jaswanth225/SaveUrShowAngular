@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IndexComponent } from './index/index.component';
@@ -15,7 +16,6 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { LoginComponent } from './login/login.component';
   
-import { BookTicketComponent } from './book-ticket/book-ticket.component';
 import { UserBookingsComponent } from './user-bookings/user-bookings.component';
 import { MovieIndexComponent } from './movie-index/movie-index.component';
 import { MoviesCreateComponent } from './movies-create/movies-create.component';
@@ -24,6 +24,11 @@ import { ContactusComponent } from './contactus/contactus.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { SearchFilterPipe } from './search-filter.pipe';
 import { MovieViewComponent } from './movie-view/movie-view.component';
+import { SingleViewComponent } from './single-view/single-view.component';
+import { BookingComponent } from './booking/booking.component';
+import { PaymentComponent } from './payment/payment.component';
+import { SuccessComponent } from './success/success.component';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +42,6 @@ import { MovieViewComponent } from './movie-view/movie-view.component';
     ViewProfileComponent,
     EditProfileComponent,
     LoginComponent,
-    BookTicketComponent,
     UserBookingsComponent,
     MovieIndexComponent,
     MoviesCreateComponent,
@@ -45,11 +49,15 @@ import { MovieViewComponent } from './movie-view/movie-view.component';
     ContactusComponent,
     AboutusComponent,
     SearchFilterPipe,
-    MovieViewComponent
+    MovieViewComponent,
+    SingleViewComponent,
+    BookingComponent,
+    PaymentComponent,
+    SuccessComponent,
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,HttpClientModule,ReactiveFormsModule, BrowserAnimationsModule,
+    BrowserModule,FormsModule,
+    AppRoutingModule,HttpClientModule,ReactiveFormsModule, BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

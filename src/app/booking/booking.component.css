@@ -1,0 +1,33 @@
+.container {
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    width: 100%;
+  }
+  
+  .btn-secondary {
+    padding: 6px 12px;
+  }
+  
+  small {
+    color: #777;
+  }
+  
+  select.form-control {
+    width: 100%;
+  }
+  
+  p {
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  .movie-image {
+    flex: 1; 
+    padding: 16px; 
+  }

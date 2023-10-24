@@ -6,10 +6,7 @@
       <img class="profile-img-card" src="assets/img/profile.png" />
       <p class="profile-name-card"></p>
       <div class="row">
-        <div class="col-md-6">
-          <p class="text-center"><strong>UserID:</strong> {{ user.userid }}</p>
-        </div>
-        <div class="col-md-6">
+        <div class="col-md-6 offset-md-3">
           <p class="text-center">
             <strong>Username:</strong> {{ user.username }}
           </p>
@@ -17,16 +14,25 @@
       </div>
   
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-7 offset-md-3">
           <p class="text-center"><strong>Email:</strong> {{ user.email }}</p>
         </div>
-        <div class="col-md-6">
-          <p class="text-center"><strong>Password:</strong> {{ user.password }}</p>
+       
+      </div>
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <!-- <p class="text-center"><strong>Password:</strong> {{ user.password }}</p> -->
+          <p class="text-center"><strong>Password : </strong>
+            <span *ngIf="showPassword">{{ user.password }}</span>
+            <span *ngIf="!showPassword">*********</span>
+            <button (click)="togglePasswordVisibility()">
+              <i class="far" [ngClass]="{'fa-eye': !showPassword, 'fa-eye-slash': showPassword}"></i>
+            </button>
+          </p>
         </div>
       </div>
-  
       <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 offset-md-3">
           <p class="text-center">
             <strong>UserType:</strong> {{ user.usertype }}
           </p>

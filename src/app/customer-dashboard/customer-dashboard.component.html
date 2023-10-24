@@ -4,7 +4,7 @@
   <div class="row justify-content-around" style="margin: 5%">
     <div class="col-4" >
       <div class="card customer_dashboard_card" >
-        <a routerLink="/viewMovies" class="view_items_link">
+        <a routerLink="/viewMovies" class="view_movies_link">
           <div class="grid text-center" style="margin-right: 0%cd l">
             <img
               src="../../assets/img/download.png"
@@ -15,13 +15,14 @@
             <p class="text-muted text-center">
               Here u can book available movies..
             </p>
+            <br>
           </div>
         </a>
       </div>
     </div>
     <div class="col-4">
       <div class="card customer_dashboard_card" >
-        <a routerLink="/userBookings/{{userid}}" class="view_items_link">
+        <a [routerLink]="['/userBookings/', userid]" class="view_movies_link">
         <div class="grid text-center" style="margin-right: 0%cd l">
           <img
             src="../../assets/img/logo6.png"

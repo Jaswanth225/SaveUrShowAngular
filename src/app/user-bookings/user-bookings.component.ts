@@ -10,12 +10,12 @@ import { UserService } from '../user.service';
   styleUrls: ['./user-bookings.component.css']
 })
 export class UserBookingsComponent implements OnInit {
-ticket :Ticket[]=[];
+tickets:Ticket[]=[];
+ticket!: Ticket;
 userid!: number;
-  user!: User;
-  id!:number;
+  //user!: User;
+ // id!:number;
   constructor(
-    
     public userService: UserService,
     private ticketService:TicketService,
     private route: ActivatedRoute,
@@ -23,20 +23,20 @@ userid!: number;
   ) { }
 
   ngOnInit(): void {
-    this.userid = this.route.snapshot.params['userid'];
-    console.log(this.userid);
-   this.ticketService.find(this.userid).subscribe((data: Ticket[])=>{
-   console.log(data);
-   this.ticket = data;
+//     this.userid = this.route.snapshot.params['userid'];
+//     console.log(this.userid);
+//    this.ticketService.find(this.userid).subscribe((data: Ticket[])=>{
+//    console.log(data);
+//    this.tickets = data;
+// });
+
+this.userid = this.route.snapshot.params['userid'];
+        
+this.ticketService.find(this.userid).subscribe((i: Ticket)=>{
+  this.ticket = i;
+  console.log(this.ticket);
+
 });
-    // var x = localStorage.getItem("userid");
-    // console.log(x);
-    // if(x){
-    //   this.ticketService.getAll().subscribe((data: Ticket[])=>{
-    //     this.ticket = data;
-    //     console.log(this.ticket);
-    //   })  
-    // }
   }
 
 }

@@ -1,6 +1,14 @@
-<div class="login-card" style="background-color:rgb(243, 233, 233);
- box-shadow: 10px 10px 5px 5px rgb(231, 243, 248);">
-  <img class="profile-img-card" src="assets/img/logologin.png" />
+<section class="vh-100">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="https://thumbs.dreamstime.com/b/cinema-background-concept-movie-theater-object-isolated-white-vector-illustration-205993805.jpg"
+          class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <div class="login-card" style="background-color:rgb(243, 233, 233);
+          box-shadow: 10px 10px 5px 5px rgb(231, 243, 248);">
+          <img class="profile-img-card" src="assets/img/logologin.png" />
   <p class="profile-name-card"></p>
   <form class="form-signin">
     <span class="reauth-email"></span>
@@ -10,7 +18,7 @@
       class="form-control"
       id="inputEmail"
       required
-      placeholder="Email address"
+      placeholder="Enter email address"
       autofocus
     />
     <input
@@ -19,16 +27,59 @@
       class="form-control"
       id="inputPassword"
       required
-      placeholder="Password"
+      placeholder="Enter your password"
     />
-    <button
-      class="btn btn-primary btn-block btn-lg btn-signin"
-      (click)="Login(Email.value, PWD.value)"
-    >
-      Sign in
-    </button>
+    <p *ngIf="showErrorMessage" class="text-danger">Incorrect password. Please try again.</p>
+    
+    <button  class="btn btn-primary btn-block btn-lg btn-signin"(click)="Login(Email.value, PWD.value)"> Sign in</button>
+    <div class="row mb-4 px-3">
+      <h6 class="mb-0 mr-4 mt-2">Sign in with</h6>
+      <a href="https://www.facebook.com/" class="facebook-link">
+      <div class="facebook text-center mr-3">
+      <div class="fa fa-facebook" style="color: #3b5998;"></div>
+      </div>
+    </a>
+    <a href="https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D" class="twitter-link">
+      <div class="twitter text-center mr-3">
+      <div class="fa fa-twitter" style="color: #3b5998;"></div>
+      </div>
+    </a>
+    <a href="https://in.linkedin.com/" class="linkedin-link">
+      <div class="linkedin text-center mr-3" style="color: #0082ca;">
+      <div class="fa fa-linkedin"></div>
+      </div>
+    </a>
+    </div>
+    
   </form>
-  <a class="forgot-password" routerLink="/signup">New User ?</a>
+  <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? 
+    <a class="link-safe" routerLink="/signup">Register</a>
 </div>
+        <!-- <form>
+          
+          <div class="form-outline mb-4">
+            <input type="email" id="form3Example3" class="form-control form-control-lg"
+              placeholder="Enter a valid email address" />
+            <label class="form-label" for="form3Example3">Email address</label>
+          </div>
 
-<style></style>
+          <div class="form-outline mb-3">
+            <input type="password" id="form3Example4" class="form-control form-control-lg"
+              placeholder="Enter password" />
+            <label class="form-label" for="form3Example4">Password</label>
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button type="button" class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? 
+              <a class="link-danger" routerLink="/signup">Register</a>
+             
+          </div>
+
+        </form> -->
+      </div>
+    </div>
+  </div>
+  
+</section>

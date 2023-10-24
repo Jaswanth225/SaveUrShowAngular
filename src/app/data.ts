@@ -4,8 +4,17 @@ export interface Data {
     theatrename: string;
     moviename:string;
     movieLink:string;
-    slot:string;
     charges:number;
+    synopsis:string;
+    Genre:string;
+    trailer:string;
+    rating:number;
+    duration:string;
+    heroname:string;
+    heroimg :string;
+    heroinename:string;
+    heroineimg :string;
     date:Date;
+    email:String;
 }
 

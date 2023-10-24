@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
+import { UserService } from '../user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 export class LoginComponent implements OnInit {
   Email: string = 'Email';
   Password: string = 'pwd';
+  showErrorMessage :boolean= false;
+  errorMessage = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+    private userService :UserService) {}
 
   ngOnInit(): void {}
+
+  
   Login(Email: string, PWD: string): any {
     var param = { email: Email, pwd: PWD };
     //console.log(param);
@@ -23,18 +28,30 @@ export class LoginComponent implements OnInit {
         
         console.log(data);
 
-        if (data.Status == 'Error') {
+        if (data.Status == 'Error' && data.Message == 'Incorrect credentials') {
+          this.showErrorMessage = true;
+            this.errorMessage = 'Wrong password. Please try again.';
           alert(data.Message);
-        } else {
+        } else if (data.Status == 'Error') {
+          // Handle other types of errors if needed
+          this.showErrorMessage = true;
+          this.errorMessage = data.Message;
+        }else {
           localStorage.setItem('User', JSON.stringify(data));
-          //console.log(data.userName=='Admin');return;
+          this.showErrorMessage = false;
           if (data.value.usertype == 'Admin') {
             window.location.href = '/adminDashboard';
           } else {
             window.location.href = '/customerDashboard';
           }
         }
-      });
+      }, (error) => {
+        console.error('HTTP error:', error);
+       
+        this.showErrorMessage = true;
+        this.errorMessage = 'An error occurred during login. Please try again later.';
+      }
+      );
     return false;
   }
 }

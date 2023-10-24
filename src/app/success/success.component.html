@@ -1,0 +1,137 @@
+
+<div class="text-center" style="padding-top: 2%; padding-bottom: 0%;"><a href="#" [routerLink]="['/viewMovies']" class="btn btn-info">View all movies</a></div>
+  <div class="container">
+    <div class="row justify-content-center align-items-center" style="height: 100vh;">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title text-center">Booking Successful!</h3>
+            <hr>
+            <div class="row">
+              <div class="col-md-3">
+                <img [src]="bookingDetails.movieLink" style="height: 100%; width: 100%;" alt="Movie Poster">
+              </div>
+              <div class="col-md-9">
+                <h3> {{ bookingDetails.movieName }}</h3>
+                <p>Number of Tickets: {{ bookingDetails.ticketQuantity }}</p>
+                <p>Seat Numbers: {{ bookingDetails.seatNumbers }}</p>
+                <p>Date: {{ bookingDetails.date| date:'EEE MMM dd yyyy HH:mm:ss'}}</p>
+                <p>Slot: {{ getSlotTime(bookingDetails.slot) }}</p>
+                <p>Theatre : {{ bookingDetails.theatrename }}</p>
+                <p>Location: {{ bookingDetails.location }}</p>
+              </div>
+            </div>
+           
+            <div class="text-right mt-3">
+              <img src="https://th.bing.com/th/id/OIP.-9N4K3Syg-OgbET8dgDwqAHaHa?pid=ImgDet&rs=1" style="height: 22%; width: 22%;">
+            </div>
+             
+            <strong><p class="text-right mt-3">Total Cost: $ {{ bookingDetails.totalCost }}</p></strong>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-3">
+      <button class="btn btn-primary" (click)="send()">Send Confirmation Email</button> 
+      <!-- <button class="btn btn-primary" (click)="send(bookingDetails.email)">Send Confirmation Email</button> -->
+
+      <!-- <p>{{ data.location}}</p> -->
+    </div>
+
+    <form *ngIf="showEmailForm" (submit)="send()" class="email-form">
+      <div class="form-group">
+        <label for="movieName" class="form-label">Movie Name</label>
+        <input
+          type="text"
+          id="movieName"
+          name="movieName"
+          class="form-control"
+          [value]="movieName"
+          readonly
+        />
+      </div>
+      <div class="form-group">
+        <label for="date" class="form-label">Date</label>
+        <input
+          type="text"
+          id="date"
+          name="date"
+          class="form-control"
+          [value]="date"
+          readonly
+        />
+      </div>
+      <div class="form-group">
+        <label for="slot" class="form-label">SLot</label>
+        <input
+          type="text"
+          id="slot"
+          name="slot"
+          class="form-control"
+          [value]="slot"
+          readonly
+        />
+      </div>
+      <div class="form-group">
+        <label for="theatrename" class="form-label">Theatre</label>
+        <input
+        type="text"
+        id="theatrename"
+        name="theatrename"
+        class="form-control"
+        [value]="theatrename"
+        readonly
+        />
+      </div>
+      <div class="form-group">
+        <label for="location" class="form-label">Location</label>
+        <input
+          type="text"
+          id="location"
+          name="location"
+          class="form-control"
+          [value]="location"
+          readonly
+        />
+      </div>
+      <div class="form-group">
+        <label for="ticketQuantity" class="form-label">Number of Tickets</label>
+        <input
+          type="text"
+          id="ticketQuantity"
+          name="ticketQuantity"
+          class="form-control"
+          [value]="ticketQuantity"
+          readonly
+        />
+      </div>
+      <div class="form-group">
+        <label for="seatNumbers" class="form-label">Seat Numbers</label>
+        <input
+          type="text"
+          id="seatNumbers"
+          name="seatNumbers"
+          class="form-control"
+          [value]="seatNumbers"
+          readonly
+        />
+      </div>
+      <div class="form-group">
+        <label for="from_email" class="form-label">Your Email</label>
+        <input
+          formControlName="from_email"
+          type="email"
+          name="from_email"
+          id="from_email"
+          placeholder="Your Email"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="form-btn">Send</button>
+      </div>
+    </form>
+
+  </div>
+  
+  

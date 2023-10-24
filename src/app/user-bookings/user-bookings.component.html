@@ -1,24 +1,28 @@
-<h3 class="text-center my-5 booking_title">All my  Bookings</h3>
+<h3 class="text-center my-5 booking_title">My  Bookings</h3>
 
 <div class="container">
-    <div class="card flights_card">
+    <div class="card movies_card">
         <div class="card-body">
             <table class="table table-striped text-center">
                 <thead class="thead-dark">
                 <tr>
-                    <th>Movie ID</th>
-                    <th>Seat num</th>
-                    <th>Bookid</th>
-                    <th>User Id</th>
-                    <th>Date</th>
+                    <th></th>
+                <th>BookId</th>
+                <th>SeatNum</th>
+                <th>MovieId</th>
+                <th>UserId</th>
+                <th>Slot</th>
+                <th>Booked Date</th>
                 </tr>
                 </thead>
-                <tr *ngFor="let t of ticket">
-                    <td>{{ t.movieId }}</td>
-                    <td>{{ t.seatnum }}</td>
-                    <td>{{ t.bookid }}</td>
-                    <td>{{ t.userid }}</td>
-                    <td>{{ t.date }}</td>
+                <tr >
+                    <td></td>
+                <td>{{ ticket.bookid }}</td>
+                <td>{{ ticket.seatnum }}</td>
+                <td>{{ ticket.movieId }}</td>
+                <td>{{ ticket.userid }}</td>
+                <td>{{ticket.slot}}</td>
+                <td>{{ ticket.date }}</td>
                 </tr>
             </table>
         </div>

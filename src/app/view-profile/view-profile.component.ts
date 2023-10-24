@@ -12,7 +12,11 @@ export class ViewProfileComponent implements OnInit {
   userid!: number;
   user!: User;
   id!:number;
+  showPassword = false;
 
+  togglePasswordVisibility(): void {
+    this.showPassword = !this.showPassword;
+  }
   constructor( 
     public userService: UserService,
     private route: ActivatedRoute,

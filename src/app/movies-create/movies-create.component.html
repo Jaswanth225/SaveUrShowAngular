@@ -18,7 +18,7 @@
           class="alert alert-danger"
         >
           <div *ngIf="f['location'].errors && f['location'].errors['required']">
-            movieId is required.
+            Locationis required.
           </div>
         </div>
       </div>
@@ -79,24 +79,6 @@
       </div> 
   
       <div class="form-group">
-        <label for="slot">Slot:</label>
-        <input
-          formControlName="slot"
-          id="slot"
-          type="text"
-          class="form-control"
-        />
-        <div
-          *ngIf="f['slot'].touched && f['slot'].invalid"
-          class="alert alert-danger"
-        >
-          <div *ngIf="f['slot'].errors && f['slot'].errors['required']">
-            movieId is required.
-          </div>
-        </div>
-      </div>
-  
-      <div class="form-group">
         <label for="charges">Charges:</label>
         <input
           formControlName="charges"
@@ -113,7 +95,80 @@
           </div>
         </div>
       </div>
+
+      <div class="form-group">
+        <label for="synopsis">synopsis:</label>
+        <input
+          formControlName="synopsis"
+          id="synopsis"
+          type="text"
+          class="form-control"
+        />
+        <div
+          *ngIf="f['synopsis'].touched && f['synopsis'].invalid"
+          class="alert alert-danger"
+        >
+          <div *ngIf="f['synopsis'].errors && f['synopsis'].errors['required']">
+            synopsis is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="Genre">Genre:</label>
+        <input
+          formControlName="Genre"
+          id="Genre"
+          type="text"
+          class="form-control"
+        />
+        <div
+          *ngIf="f['Genre'].touched && f['Genre'].invalid"
+          class="alert alert-danger"
+        >
+          <div *ngIf="f['Genre'].errors && f['Genre'].errors['required']">
+            Genre is required.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="trailer">trailer:</label>
+        <input
+          formControlName="trailer"
+          id="trailer"
+          type="text"
+          class="form-control"
+        />
+        <div
+          *ngIf="f['trailer'].touched && f['trailer'].invalid"
+          class="alert alert-danger"
+        >
+          <div *ngIf="f['trailer'].errors && f['trailer'].errors['required']">
+            trailer is required.
+          </div>
+        </div>
+      </div>
   
+      
+      <div class="form-group">
+        <label for="rating">rating:</label>
+        <input
+          formControlName="rating"
+          id="rating"
+          type="text"
+          class="form-control"
+        />
+        <div
+          *ngIf="f['rating'].touched && f['rating'].invalid"
+          class="alert alert-danger"
+        >
+          <div *ngIf="f['rating'].errors && f['rating'].errors['required']">
+            rating is required.
+          </div>
+        </div>
+      </div>
+
       <div class="form-group">
         <label for="date">Date:</label>
         <input

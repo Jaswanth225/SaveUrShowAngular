@@ -32,8 +32,8 @@ export class TicketService {
     )
   }
 
-  find(Bookid:number):Observable<any>{
-    return this.httpClient.get(this.apiURL+'/BookTickets/'+Bookid)
+  find(userid:number):Observable<any>{
+    return this.httpClient.get(this.apiURL+'/BookTickets/'+userid)
     .pipe(
       catchError(this.errorHandler)
     )

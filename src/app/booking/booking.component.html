@@ -1,0 +1,122 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Book Tickets for {{ data.moviename }}</h3>
+      <br>
+      <p class="sm">Ticket charge per one Ticket: {{ data.charges }}</p>
+
+      <form [formGroup]="bookingForm">
+        <div class="col-md-5 form-group">
+          <label for="ticketQuantity">Number of Tickets:</label>
+          <div class="input-group">
+            <div class="input-group-append">
+              <button class="btn btn-secondary" (click)="decrementTicketQuantity()" [disabled]="ticketQuantity <= 1">-</button>
+            </div>
+            <input class="form-control" id="ticketQuantity" [(ngModel)]="ticketQuantity" formControlName="ticketQuantity" />
+            <div class="input-group-append">
+              <button class="btn btn-secondary" (click)="incrementTicketQuantity()" [disabled]="ticketQuantity >= 4">+</button>
+            </div>
+          </div>
+          <small>You can book a max of 4 tickets</small>
+        </div>
+
+        <div class="form-group">
+          <label for="seatNumbers">Enter seat nums:</label>
+          <input type="text" class="form-control" id="seatNumbers" formControlName="seatNumbers" />
+          <small>Enter seats in an order</small>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Select a Date to book a ticket:</label>
+          <select formControlName="date" class="form-control" id="date">
+            <option *ngFor="let date of dateOptions" [value]="date">{{ date | date: 'mediumDate' }}</option>
+          </select>
+          <small>Please select a valid date within the next 2 days.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="slot">Select a Slot:</label>
+          <select formControlName="slot" class="form-control" id="slot">
+            <option *ngFor="let slot of availableSlots" [value]="slot">{{ slot }}</option>
+          </select>
+          <small>Slot 1: 8am to 11am  Slot 2: 12pm to 3pm  Slot 3: 4pm to 7pm  Slot 4: 8pm to 11pm</small>
+        </div>
+
+        <p>Total Cost: $ {{ data.charges * ticketQuantity }}</p>
+        <button class="btn btn-primary"  (click)="proceedToPayment()" [routerLink]="['/payment/', data.charges*ticketQuantity]" [disabled]="!isFormValid()">Proceed to Payment</button>
+      </form>
+    </div>
+
+    <div class="col-md-6">
+      <div class="movie-image">
+        <img [src]="data.movieLink" style="height: 50%; width: 50%;" alt="Movie Poster">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- 
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Book Tickets for {{ data.moviename }}</h3>
+      <br>
+      <p class="sm">Ticket charge per one Ticket : {{ data.charges }}</p>
+
+      <div class="col-md-4 form-group">
+        <label for="ticketQuantity">Number of Tickets:</label>
+        <div class="input-group">
+          <div class="input-group-append">
+            <button class="btn btn-secondary" (click)="decrementTicketQuantity()" [disabled]="ticketQuantity <= 1">-</button>
+          </div>
+          <input class="form-control" id="ticketQuantity" [(ngModel)]="ticketQuantity" />
+          <div class="input-group-append">
+            <button class="btn btn-secondary" (click)="incrementTicketQuantity()" [disabled]="ticketQuantity >= 4">+</button>
+          </div>
+        </div>
+        <small>You can book max of 4 tickets</small>
+      </div>
+
+      <div class="form-group">
+        <label for="ticketQuantity">Enter seat nums:</label>
+        <input type="text" class="form-control" />
+        <small>Enter seats in an order</small>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Select a Date to book a ticket:</label>
+        <select formControlName="date" class="form-control" id="date">
+          <option *ngFor="let date of dateOptions" [value]="date">{{ date | date: 'mediumDate' }}</option>
+        </select>
+        <small>Please select a valid date within the next 2 days.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="slot">Select a Slot:</label>
+        <select formControlName="slot" class="form-control" id="slot">
+          <option *ngFor="let slot of availableSlots" [value]="slot">{{ slot }}</option>
+        </select>
+        <small>Slot 1 : 8am to 11am  Slot 2 : 12pm to 3pm  Slot 3 : 4pm to 7pm  Slot 4 : 8pm to 11pm</small>
+      </div>
+
+      <p>Total Cost: $ {{ data.charges * ticketQuantity }}</p>
+
+      <button class="btn btn-primary" routerLink="/payment">Proceed to Payment</button>
+    </div>
+
+    <div class="col-md-6">
+      <div class="movie-image">
+        <img [src]="data.movieLink" style="height: 50%; width: 50%;" alt="Movie Poster">
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
