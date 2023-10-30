@@ -1,0 +1,86 @@
+<!-- <div class="payment-container">
+    <h1>Select Payment Method</h1>
+  
+    <div class="payment-options">
+      <div class="payment-option" id="phonepe">
+        <h2>PhonePe</h2>
+        <button (click)="makePhonePePayment()">Pay with PhonePe</button>
+      </div>
+  
+      <div class="payment-option" id="googlepay">
+        <h2>Google Pay</h2>
+        <button (click)="makeGooglePayPayment()">Pay with Google Pay</button>
+      </div>
+  
+      <div class="payment-option" id="paytm">
+        <h2>Paytm</h2>
+        <button (click)="makePaytmPayment()">Pay with Paytm</button>
+      </div>
+  
+      <div class="payment-option" id="debitcard">
+        <h2>Debit Card</h2>
+        <label for="cardNumber">Card Number:</label>
+        <input type="text" id="cardNumber" placeholder="Enter Card Number">
+        <label for="expiryDate">Expiry Date:</label>
+        <input type="text" id="expiryDate" placeholder="MM/YY">
+        <label for="cvv">CVV:</label>
+        <input type="text" id="cvv" placeholder="CVV">
+        <button (click)="makeDebitCardPayment()">Pay with Debit Card</button>
+      </div>
+    </div>
+  
+    <div class="payment-status">
+      <h2>Payment Status</h2>
+      <p id="paymentResult">Waiting for payment...</p>
+    </div>
+  </div> -->
+  
+
+<div class="container">
+  <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="col-md-6">
+      <div class="card transaction-form">
+        <div class="card-body">
+          <h2 class="card-title">Enter Bank Card Details</h2>
+          <form (ngSubmit)="submitBankDetails()" #bankForm="ngForm">
+            <!-- Card Number Input -->
+            <div class="form-group">
+              <label for="cardNumber" class="form-label">Card Number :</label>
+              <input type="text" id="cardNumber" name="cardNumber" [(ngModel)]="cardNumber" placeholder="Enter Card Number" class="form-control" required pattern="\d{16}">
+              <div *ngIf="bankForm.controls['cardNumber'].invalid && (bankForm.controls['cardNumber'].dirty || bankForm.controls['cardNumber'].touched)" class="alert alert-danger">
+                Card number is required and should be a sixteen-digit number.
+              </div>
+            </div>
+
+            <!-- Expiry Date Input -->
+            <div class="form-group">
+              <label for="ExpiryDate" class="form-label">Expiry Date:</label>
+              <input type="text" id="ExpiryDate" name="ExpiryDate" [(ngModel)]="ExpiryDate" placeholder="MM/YY" class="form-control" required>
+              <div *ngIf="bankForm.controls['ExpiryDate'].invalid && (bankForm.controls['ExpiryDate'].dirty || bankForm.controls['ExpiryDate'].touched)" class="alert alert-danger">
+                Expiry date is required and should be a future date.
+              </div>
+            </div>
+
+            <!-- CVV Input -->
+            <div class="form-group">
+              <label for="CVV" class="form-label">CVV</label>
+              <input type="number" id="CVV" name="CVV" [(ngModel)]="CVV" placeholder="CVV" class="form-control" required>
+              <div *ngIf="bankForm.controls['CVV'].invalid && (bankForm.controls['CVV'].dirty || bankForm.controls['CVV'].touched)" class="alert alert-danger">
+                CVV is required and should be 3 digits.
+              </div>
+            </div>
+
+            <!-- Total Cost -->
+            <h4>Total Cost: $ {{ totalCost }}</h4>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary" (click)="booking()" [disabled]="bankForm.invalid || !bankForm.dirty" routerLink="/success">Submit</button>
+          </form>
+          <div *ngIf="showSuccessMessage" class="success-message">
+            Transaction is successful!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

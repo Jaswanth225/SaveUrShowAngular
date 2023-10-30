@@ -1,0 +1,41 @@
+<h1 class="text-center my-5 customer_dashboard_title">Customer Dashboard</h1>
+
+<div class="container-fluid">
+  <div class="row justify-content-around" style="margin: 5%">
+    <div class="col-4" >
+      <div class="card customer_dashboard_card" >
+        <a routerLink="/viewMovies" class="view_movies_link">
+          <div class="grid text-center" style="margin-right: 0%cd l">
+            <img
+              src="../../assets/img/download.png"
+              class="customer_dashboard_img"
+              alt=""
+            />
+            <h5 class="text-center my-3">Availabe Movies to Book</h5>
+            <p class="text-muted text-center">
+              Here u can book available movies..
+            </p>
+            <br>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="card customer_dashboard_card" >
+        <a [routerLink]="/viewProfile/{{id}}" class="view_movies_link">
+        <div class="grid text-center" style="margin-right: 0%cd l">
+          <img
+            src="../../assets/img/logo6.png"
+            class="customer_dashboard_img"
+            alt=""
+          />
+          <h5 class="text-center my-3">View Your Bookings Here</h5>
+          <p class="text-muted text-center">
+            Here you can view your bookings done in the past.
+          </p>
+        </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
