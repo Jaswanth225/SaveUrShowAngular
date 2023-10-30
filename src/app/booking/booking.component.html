@@ -28,9 +28,10 @@
 
         <div class="form-group">
           <label for="date">Select a Date to book a ticket:</label>
-          <select formControlName="date" class="form-control" id="date">
+          <!-- <select formControlName="date" class="form-control" id="date">
             <option *ngFor="let date of dateOptions" [value]="date">{{ date | date: 'mediumDate' }}</option>
-          </select>
+          </select> -->
+          <input type="date" class="form-control" id="date" formControlName="date"/>
           <small>Please select a valid date within the next 2 days.</small>
         </div>
 

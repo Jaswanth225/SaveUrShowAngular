@@ -104,21 +104,20 @@ box-shadow: 10px 10px 5px 5px rgb(231, 243, 248);">
     <div class="row">
       <div class="col-sm-12">
         <input
-          #Email
-          formControlName="usertype"
+          formControlName="contact"
           type="text"
           class="form-control"
-          id="usertype"
+          id="contact"
           required
-          placeholder="usertype"
+          placeholder="contact"
           autofocus
         />
         <div
-          *ngIf="f['usertype'].touched && f['usertype'].invalid"
+          *ngIf="f['contact'].touched && f['contact'].invalid"
          
         >
-          <div *ngIf="f['usertype'].errors && f['usertype'].errors['required']">
-            <small>UserType is required.</small>
+          <div *ngIf="f['contact'].errors && f['contact'].errors['required']">
+            <small>Contact is required.</small>
           </div>
         </div>
       </div>

@@ -29,6 +29,10 @@
           <a class="nav-link active" routerLink="/viewProfile/{{id}}">Profile</a>
         </li>
 
+        <li [hidden]="!IsAdmin" class="nav-item">
+          <a class="nav-link active" routerLink="/adminDashboard">Admin Dashboard</a>  
+        </li>
+
         <li [hidden]="!IsLoggedIn" class="nav-item">
           <a class="nav-link" (click)="Logout()">Logout</a>
         </li>      

@@ -7,6 +7,17 @@ import { TicketService } from '../ticket.service';
 import { FormGroup, FormControl, Validators,FormBuilder} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { BookingService } from '../booking.service';
+
+interface BookingResponse {
+  bookid: number;
+    seatnum: string;
+    movieId: number;
+    userid: number;
+    ticketQuantity:number;
+    date: Date;
+    slot :string;
+
+}
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
@@ -21,6 +32,7 @@ export class BookingComponent implements OnInit {
   availableSlots: string[] = ['Slot 1', 'Slot 2', 'Slot 3','Slot 4'];
   dateOptions: Date[] = [];
   bookingForm: FormGroup;
+  bookingDetails:any;
 
 
   constructor(public dataService: DataService,
@@ -55,6 +67,8 @@ export class BookingComponent implements OnInit {
       this.ticketQuantity--;
     }
   }
+
+  
   generateDateOptions(): void {
     const currentDate = new Date();
     const nextTwoDays = new Date(currentDate);
@@ -90,4 +104,46 @@ export class BookingComponent implements OnInit {
   get f(){
     return this.form.controls;
   }  
-}
+  submit() {
+    console.log('Form Values:', this.form.value);
+  
+    if (this.form.valid) {
+      // Dates are valid, proceed with booking
+      this.http.post('http://localhost:51140/api/booktickets/', this.form.value).subscribe(
+        (response) => {
+          // Cast the response to BookingResponse
+          const bookingResponse = response as BookingResponse;
+  
+          // Access the bookingId property from the typed response
+          const bookingId = bookingResponse.bookid;
+  
+          // Handle success
+          console.log('Booking ID:', bookingId);
+  
+          // Save the form data to localStorage
+        // Save the form data to localStorage
+          localStorage.setItem('formData', JSON.stringify(this.form.value));
+
+  
+          // Navigate to the successful booking page
+          this.router.navigate(['/payment']
+        
+      )
+        }, 
+        (err)=> {
+          console.log(err);
+        }
+      )
+    }
+
+  
+    }
+  }
+  
+  
+
+      
+
+      
+    
+  

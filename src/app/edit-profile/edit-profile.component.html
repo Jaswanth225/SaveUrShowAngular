@@ -69,6 +69,19 @@
             </div>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-12"><p class="text-center"><strong>Phone Number:</strong></p>
+                <input 
+                formControlName="contact"
+                id="contact" 
+                type="text" 
+                class="form-control" />
+            <!-- <div *ngIf="f['contact'].touched && f['contact'].invalid" class="alert alert-danger">
+                <div *ngIf="f['contact'].errors && f['contact'].errors['required']">Contact is required.</div>
+            </div> -->
+            </div>    
+        </div>
         
         <div class="row">
             <div class="col-md-12 my-3"><p class="text-center my-2"><button class="btn btn-primary edit_profile_btn" type="submit">Update</button></p></div>

@@ -30,6 +30,11 @@ export class ViewProfileComponent implements OnInit {
       this.user = data;
     });
   }
+  goToUserBookings() {
+    if (this.userid !== null) {
+      this.router.navigate(['/userbookings', this.userid]);
+    }
 
 }
 
+}

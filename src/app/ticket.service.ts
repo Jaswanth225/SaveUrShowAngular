@@ -33,7 +33,7 @@ export class TicketService {
   }
 
   find(userid:number):Observable<any>{
-    return this.httpClient.get(this.apiURL+'/BookTickets/'+userid)
+    return this.httpClient.get(this.apiURL+'/BookTickets/user/'+userid)
     .pipe(
       catchError(this.errorHandler)
     )

@@ -11,7 +11,7 @@ import { UserService } from '../user.service';
 })
 export class UserBookingsComponent implements OnInit {
 tickets:Ticket[]=[];
-ticket!: Ticket;
+ticket1!: any;
 userid!: number;
   //user!: User;
  // id!:number;
@@ -32,9 +32,9 @@ userid!: number;
 
 this.userid = this.route.snapshot.params['userid'];
         
-this.ticketService.find(this.userid).subscribe((i: Ticket)=>{
-  this.ticket = i;
-  console.log(this.ticket);
+this.ticketService.find(this.userid).subscribe((i:Ticket)=>{
+  this.ticket1= i;
+  console.log(this.ticket1);
 
 });
   }

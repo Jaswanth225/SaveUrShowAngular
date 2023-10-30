@@ -28,7 +28,7 @@ const routes: Routes = [
   {path:"viewMovies",component:ViewMoviesComponent},
   {path:"viewProfile/:userid",component:ViewProfileComponent},
   {path:"editProfile/:userid",component:EditProfileComponent},
-  {path:"userBookings/:userid",component:UserBookingsComponent},
+  {path:"userbookings/:userid",component:UserBookingsComponent},
   {path:"movieIndex",component:MovieIndexComponent},
   {path:"movieCreate",component:MoviesCreateComponent},
   {path:"allBookings",component:AllBookingsComponent},

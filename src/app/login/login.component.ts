@@ -37,12 +37,20 @@ export class LoginComponent implements OnInit {
           this.showErrorMessage = true;
           this.errorMessage = data.Message;
         }else {
-          localStorage.setItem('User', JSON.stringify(data));
-          this.showErrorMessage = false;
-          if (data.value.usertype == 'Admin') {
-            window.location.href = '/adminDashboard';
-          } else {
-            window.location.href = '/customerDashboard';
+          // localStorage.setItem('User', JSON.stringify(data));
+          // this.showErrorMessage = false;
+          // if (data.value.usertype == 'Admin') {
+          //   window.location.href = '/adminDashboard';
+          // } else {
+          //   window.location.href = '/customerDashboard';
+          // }
+          const lowerCaseEmail=Email.toLowerCase();
+          if(lowerCaseEmail=='admin@gmail.com'&& PWD=='admin123'){
+            localStorage.setItem('User',JSON.stringify(data));
+            window.location.href='/adminDashboard';
+          }else{
+            localStorage.setItem('User',JSON.stringify(data));
+            window.location.href='/customerDashboard';
           }
         }
       }, (error) => {
