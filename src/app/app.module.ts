@@ -28,6 +28,9 @@ import { SingleViewComponent } from './single-view/single-view.component';
 import { BookingComponent } from './booking/booking.component';
 import { PaymentComponent } from './payment/payment.component';
 import { SuccessComponent } from './success/success.component';
+import { CreatefeedComponent } from './createfeed/createfeed.component';
+import { StarRatingComponent } from './star-rating/star-rating.component';
+import { StarRatingPipe } from './star-rating.pipe';
 
 
 @NgModule({
@@ -54,6 +57,9 @@ import { SuccessComponent } from './success/success.component';
     BookingComponent,
     PaymentComponent,
     SuccessComponent,
+    CreatefeedComponent,
+    StarRatingComponent,
+    StarRatingPipe,
   ],
   imports: [
     BrowserModule,FormsModule,

@@ -5,6 +5,7 @@ import { Data } from '@angular/router';
 import { DataService } from '../data.service';
 import emailjs from '@emailjs/browser';
 import { FormGroup,FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 interface Movie{
   ticketQuantity: number;
@@ -29,7 +30,7 @@ export class SuccessComponent implements OnInit {
   data!: Data;
   showEmailForm: boolean=false;
   ticketQuantity: number=0;
-  seatNumbers: number=0;
+  seatnum: number=0;
   movieName: string='';
   theatrename: string='';
   date: string='';
@@ -70,7 +71,7 @@ export class SuccessComponent implements OnInit {
       date: this.bookingDetails.date,
       Location: this.bookingDetails.location,
       ticketQuantity: this.bookingDetails.ticketQuantity,
-      seatNumbers: this.bookingDetails.seatNumbers,
+      seatnum: this.bookingDetails.seatNumbers,
       Slot: this.bookingDetails.slot,
       theatrename: this.bookingDetails.theatrename,
       from_email: this.form.value.from_email,
@@ -80,13 +81,14 @@ export class SuccessComponent implements OnInit {
       const response = await emailjs.send("service_67uu986", "template_ugj4gle", emailParams);
       alert("Message has been sent.");
       this.form.reset();
+      this.router.navigate(['/viewMovies']);
     } catch (error) {
       console.error("Error sending email:", error);
       alert("Error sending email.");
     }
   }
 
-  constructor(public dataService: DataService,private bookingService: BookingService,private http: HttpClient,private fb:FormBuilder) {
+  constructor(public dataService: DataService,private router: Router,private bookingService: BookingService,private http: HttpClient,private fb:FormBuilder) {
     
   }
   ngOnInit(): void {
@@ -96,7 +98,8 @@ export class SuccessComponent implements OnInit {
       this.theatrename = this.bookingDetails.theatrename;
     }
   }
-
+  
+  
 
   getSlotTime(slot: string): string {
     switch (slot) {

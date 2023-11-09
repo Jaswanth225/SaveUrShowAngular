@@ -1,0 +1,11 @@
+<div class="star-rating">
+    <ng-container *ngFor="let star of stars; let i = index">
+      <span
+        class="star"
+        [class.clicked]="i < highlightedStars"
+        (click)="onStarClick(i + 1)"
+      >
+        &#9733; <!-- Unicode character for a star -->
+      </span>
+    </ng-container>
+</div>

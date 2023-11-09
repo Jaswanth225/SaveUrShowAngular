@@ -14,7 +14,7 @@
               <div class="col-md-9">
                 <h3> {{ bookingDetails.movieName }}</h3>
                 <p>Number of Tickets: {{ bookingDetails.ticketQuantity }}</p>
-                <p>Seat Numbers: {{ bookingDetails.seatNumbers }}</p>
+                <p>Seat Numbers: {{ bookingDetails.seatnum }}</p>
                 <p>Date: {{ bookingDetails.date| date:'EEE MMM dd yyyy HH:mm:ss'}}</p>
                 <p>Slot: {{ getSlotTime(bookingDetails.slot) }}</p>
                 <p>Theatre : {{ bookingDetails.theatrename }}</p>
@@ -106,13 +106,13 @@
         />
       </div>
       <div class="form-group">
-        <label for="seatNumbers" class="form-label">Seat Numbers</label>
+        <label for="seatnum" class="form-label">Seat Numbers</label>
         <input
           type="text"
-          id="seatNumbers"
+          id="seatnum"
           name="seatNumbers"
           class="form-control"
-          [value]="seatNumbers"
+          [value]="seatnum"
           readonly
         />
       </div>

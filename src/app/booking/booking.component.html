@@ -31,7 +31,7 @@
           <!-- <select formControlName="date" class="form-control" id="date">
             <option *ngFor="let date of dateOptions" [value]="date">{{ date | date: 'mediumDate' }}</option>
           </select> -->
-          <input type="date" class="form-control" id="date" formControlName="date"/>
+          <input type="datetime-local" class="form-control" id="date" formControlName="date"/>
           <small>Please select a valid date within the next 2 days.</small>
         </div>
 
@@ -44,7 +44,7 @@
         </div>
 
         <p>Total Cost: $ {{ data.charges * ticketQuantity }}</p>
-        <button class="btn btn-primary"  (click)="proceedToPayment()" [routerLink]="['/payment/', data.charges*ticketQuantity]" [disabled]="!isFormValid()">Proceed to Payment</button>
+        <button class="btn btn-primary"  (click)="proceedToPayment()" [disabled]="!isFormValid()">Proceed to Payment</button>
       </form>
     </div>
 

@@ -55,7 +55,7 @@
             <!-- Expiry Date Input -->
             <div class="form-group">
               <label for="ExpiryDate" class="form-label">Expiry Date:</label>
-              <input type="text" id="ExpiryDate" name="ExpiryDate" [(ngModel)]="ExpiryDate" placeholder="MM/YY" class="form-control" required>
+              <input type="date" id="ExpiryDate" name="ExpiryDate" [(ngModel)]="ExpiryDate" placeholder="MM/YY" class="form-control" required>
               <div *ngIf="bankForm.controls['ExpiryDate'].invalid && (bankForm.controls['ExpiryDate'].dirty || bankForm.controls['ExpiryDate'].touched)" class="alert alert-danger">
                 Expiry date is required and should be a future date.
               </div>

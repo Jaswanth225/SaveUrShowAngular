@@ -29,7 +29,7 @@ export class DataService {
     )
   }
   create(data:any): Observable<any> {
-    return this.httpClient.post(this.apiURL + '/FindTickets/', JSON.stringify(data), this.httpOptions)
+    return this.httpClient.post(this.apiURL + '/FindTickets/',data)
     .pipe(
       catchError(this.errorHandler)
     )

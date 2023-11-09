@@ -50,6 +50,8 @@ export class LoginComponent implements OnInit {
             window.location.href='/adminDashboard';
           }else{
             localStorage.setItem('User',JSON.stringify(data));
+            localStorage.setItem('UserId',JSON.stringify(data.value.userid));
+
             window.location.href='/customerDashboard';
           }
         }

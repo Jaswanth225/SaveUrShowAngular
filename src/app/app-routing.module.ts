@@ -19,6 +19,8 @@ import { SingleViewComponent } from './single-view/single-view.component';
 import { BookingComponent } from './booking/booking.component';
 import { PaymentComponent } from './payment/payment.component';
 import { SuccessComponent } from './success/success.component';
+import { CreatefeedComponent } from './createfeed/createfeed.component';
+import { StarRatingComponent } from './star-rating/star-rating.component';
 const routes: Routes = [
   { path: '', component: IndexComponent },
   { path: "login", component: LoginComponent },
@@ -38,7 +40,9 @@ const routes: Routes = [
   {path:"singleView/:movieId/view",component:SingleViewComponent},
   {path:"booking/:movieId/view",component:BookingComponent},
   {path:"payment/:totalCost",component:PaymentComponent},
-  {path:"success",component:SuccessComponent}
+  {path:"success",component:SuccessComponent},
+  {path:"createfeed",component:CreatefeedComponent},
+  {path:"star-rating",component:StarRatingComponent}
 ];
 
 @NgModule({

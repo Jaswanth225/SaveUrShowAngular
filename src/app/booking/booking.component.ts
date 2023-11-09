@@ -27,6 +27,7 @@ export class BookingComponent implements OnInit {
   form!:FormGroup;
   id!: number;
   data!: Data;
+  user: any;
   tickets:Ticket[]=[];
   ticketQuantity: number=1; 
   availableSlots: string[] = ['Slot 1', 'Slot 2', 'Slot 3','Slot 4'];
@@ -54,6 +55,11 @@ export class BookingComponent implements OnInit {
     this.dataService.find(this.id).subscribe((i: Data)=>{
       this.data = i;
     });
+
+    this.user = localStorage.getItem("UserId");
+    console.log(this.user);
+    
+    
     this.generateDateOptions();
   }
   
@@ -87,30 +93,39 @@ export class BookingComponent implements OnInit {
     const seatNumbers = this.bookingForm.get('seatNumbers')?.value;
   const date = this.bookingForm.get('date')?.value;
   const slot = this.bookingForm.get('slot')?.value;
-    this.router.navigate(['/payment', totalCost]);
-    const bookingDetails = {
+
+  
+     const bookingDetails = {
       movieName: this.data.moviename,
       movieLink:this.data.movieLink,
       theatrename:this.data.theatrename,
       location:this.data.location,
       ticketQuantity: this.ticketQuantity,
-      seatNumbers: seatNumbers,
+      seatnum: seatNumbers,
+      movieId: this.id,
+      userId: this.user,
      date: date,
     slot: slot,
     totalCost: totalCost,
     };
+    console.log("user",this.user);
+    
     sessionStorage.setItem('bookingDetails', JSON.stringify(bookingDetails));
+
+    this.submit(bookingDetails);
+
+     this.router.navigate(['/payment', totalCost]);
+  
   }
   get f(){
     return this.form.controls;
   }  
-  submit() {
-    console.log('Form Values:', this.form.value);
-  
-    if (this.form.valid) {
+  submit(res: any) {
+    console.log('Form Values:', res);
       // Dates are valid, proceed with booking
-      this.http.post('http://localhost:51140/api/booktickets/', this.form.value).subscribe(
+      this.http.post('http://localhost:51140/api/booktickets/', res).subscribe(
         (response) => {
+          
           // Cast the response to BookingResponse
           const bookingResponse = response as BookingResponse;
   
@@ -119,16 +134,17 @@ export class BookingComponent implements OnInit {
   
           // Handle success
           console.log('Booking ID:', bookingId);
+          console.log(bookingResponse)
   
           // Save the form data to localStorage
         // Save the form data to localStorage
-          localStorage.setItem('formData', JSON.stringify(this.form.value));
+          localStorage.setItem('formData', JSON.stringify(res));
 
   
           // Navigate to the successful booking page
-          this.router.navigate(['/payment']
+         // this.router.navigate(['/payment'])
         
-      )
+      
         }, 
         (err)=> {
           console.log(err);
@@ -138,7 +154,7 @@ export class BookingComponent implements OnInit {
 
   
     }
-  }
+  
   
   
 
